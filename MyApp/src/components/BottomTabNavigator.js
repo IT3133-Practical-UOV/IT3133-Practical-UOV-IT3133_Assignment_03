@@ -7,7 +7,10 @@ import Subjects from '../screens/Subjects';
 
 const Tab = createBottomTabNavigator();
 
-export default function BottomTabNavigator() {
+export default function BottomTabNavigator({route}) {
+
+    const {user} = route.params;
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -37,9 +40,9 @@ export default function BottomTabNavigator() {
         tabBarInactiveTintColor: '#aaa', 
       })}
     >
-      <Tab.Screen name="Profile" component={Profile} />
-      <Tab.Screen name="Courses" component={Courses} />
-      <Tab.Screen name="Subjects" component={Subjects} />
+      <Tab.Screen name="Profile" component={Profile} initialParams={{user}}/>
+      <Tab.Screen name="Courses" component={Courses} initialParams={{user}}/>
+      <Tab.Screen name="Subjects" component={Subjects} initialParams={{user}}/>
     </Tab.Navigator>
   );
 }
