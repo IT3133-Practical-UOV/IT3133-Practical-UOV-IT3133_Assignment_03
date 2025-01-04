@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Image, StyleSheet } from 'react-native';
 import Profile from '../screens/Profile';
 import Courses from '../screens/Course';
 import Subjects from '../screens/Subjects';
@@ -8,10 +9,44 @@ const Tab = createBottomTabNavigator();
 
 export default function BottomTabNavigator() {
   return (
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarIcon: ({ focused }) => {
+          let iconSource;
+
+          if (route.name === 'Profile') {
+            iconSource = require('../../assets/icons/profile.png');
+          } else if (route.name === 'Courses') {
+            iconSource = require('../../assets/icons/course.png');
+          } else if (route.name === 'Subjects') {
+            iconSource = require('../../assets/icons/subjects.png');
+          }
+
+          return (
+            <Image
+              source={iconSource}
+              style={[
+                styles.icon,
+                { tintColor: focused ? '#4b0150' : '#aaa' },
+              ]}
+            />
+          );
+        },
+        tabBarActiveTintColor: '#4b0150', 
+        tabBarInactiveTintColor: '#aaa', 
+      })}
+    >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="Courses" component={Courses} />
       <Tab.Screen name="Subjects" component={Subjects} />
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
