@@ -1,21 +1,105 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Image } from 'react-native';
+import Logo from '../components/Logo';
+import Footer from '../components/Footer';
+import { Divider } from 'react-native-paper';
 
 export default function Profile() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>This is the Profile Screen</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <View style={styles.logoContainer}>
+          <Logo />
+        </View>
+        <View style={styles.card}>
+          <Image source={require('../../assets/images/1.jpg')} style={styles.image} />
+          <Text style={styles.title}>Alice Johnson</Text>
+          <Text style={styles.description}>Age: 21 | Gender: Female</Text>
+          <Divider style={{ width: '80%', marginVertical: 30, backgroundColor: '#ccc' }} />
+          <View style={styles.infoContainer}>
+            <Text style={styles.subtitle}>Contact Information</Text>
+            <Text style={styles.description}>Email : ruwini@gmail.com</Text>
+            <Text style={styles.description}>Phone : 0771876638</Text>
+            <Text style={styles.description}>Address : 41, Thoranavla, Piliyandala</Text>
+            <Divider style={{ width: '80%', marginVertical: 20, backgroundColor: '#ccc' }} />
+            <Text style={styles.subtitle}>Biological Information</Text>
+            <Text style={styles.description}>Gender : Female</Text>
+            <Text style={styles.description}>Age : 21</Text>
+            <Text style={styles.description}>Blood Group : Group O+</Text>
+          </View>
+        </View>
+      </ScrollView>
+      <View style={styles.footerContainer}>
+        <Footer />
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
+  },
+  scrollContainer: {
+    paddingBottom: 80, // Prevent overlap with footer
+  },
+  logoContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 20,
   },
-  text: {
-    fontSize: 18,
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    padding: 15,
+    margin: 10,
+    alignItems: 'center',
+    width: '90%',
+    alignSelf: 'center',
+  },
+  image: {
+    width: 125,
+    height: 125,
+    borderRadius: 50,
+    marginBottom: 10,
+  },
+  infoContainer: {
+    alignItems: 'flex-start',
+    width: '100%',
+    paddingHorizontal: 20,
+  },
+  footerContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 10,
+    elevation: 5,
+    paddingHorizontal: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+  },
+  subtitle: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginTop: 10,
+    marginBottom: 5,
   },
 });
