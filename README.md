@@ -76,8 +76,13 @@ The **UoV Student Care App** is a mobile application designed for the students o
 
 ---
 ## Screenshots
+![Login](https://github.com/user-attachments/assets/f32c2054-5764-48c0-bf15-7c37862defd6)
+![Login_Error](https://github.com/user-attachments/assets/a8a99e71-bcf8-4260-9b03-1ac1b210fb48)
+![Login_With_Valid_Credentials](https://github.com/user-attachments/assets/a31a6ca8-67f0-4b84-8d95-b751f6108254)
+![Profile](https://github.com/user-attachments/assets/eb04a7f1-3364-4ecd-aeab-1e75dd1012e1)
+![Course](https://github.com/user-attachments/assets/2f275b40-1641-4b94-b09e-b48e589c235c)
+![Subjects](https://github.com/user-attachments/assets/f0bbe403-bef0-4745-b688-a54dd433649d)
 
-![Login](https://github.com/user-attachments/assets/4df97513-96b1-481f-8e18-1c2ba3acb7d7) ![Login_Error_Message](https://github.com/user-attachments/assets/6f0cad7f-6ea7-4eda-87ad-faf243b1669e) ![Profile](https://github.com/user-attachments/assets/8b537912-7ea7-494b-956f-48865c3cb587) ![Course](https://github.com/user-attachments/assets/84f295c1-1407-40f7-bfbd-ff5f5ae36d0c) ![Subjects](https://github.com/user-attachments/assets/7b73074e-2e5a-4384-bcbc-c22b75b52c62)
 
 
 ---
