@@ -84,7 +84,7 @@ The **UoV Student Care App** is a mobile application designed for the students o
 ![Subjects](https://github.com/user-attachments/assets/f0bbe403-bef0-4745-b688-a54dd433649d)
 ---
 
-##App Demo
+## App Demo
 
 
 https://github.com/user-attachments/assets/539dd303-11d9-4341-9907-3a103ac0c453
