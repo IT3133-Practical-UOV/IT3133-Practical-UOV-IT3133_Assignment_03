@@ -3,8 +3,13 @@ import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 import { Divider } from 'react-native-paper';
+import { courses } from '../../assets/data/StudentsDb';
 
-export default function Courses() {
+export default function Courses({route}) {
+
+  const {user} = route.params;
+  const course = courses.find(course => course.id === user.course_id);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -13,15 +18,15 @@ export default function Courses() {
         </View>
         <View style={styles.centerContainer}>
           <View style={styles.card}>
-            <Text style={styles.title}>Computer Science</Text>
-            <Text style={styles.description}>Code: SC101 | Dept: Engineering</Text>
+            <Text style={styles.title}>{course.name}</Text>
+            <Text style={styles.description}>Code: {course.course_code} | Dept: {course.department}</Text>
             <Divider style={{ width: '80%', marginVertical: 20, backgroundColor: '#ccc' }} />
             <View style={styles.courseInfo}>
               <Text style={styles.subtitle}>Course Information</Text>
-              <Text style={styles.description}>Code : CS101</Text>
-              <Text style={styles.description}>Department : Engineering</Text>
-              <Text style={styles.description}>Duration : 4 Years</Text>
-              <Text style={styles.description}>Description : Focuses on Programming, Algorithms, and System Design</Text>
+              <Text style={styles.description}>Code : {course.course_code}</Text>
+              <Text style={styles.description}>Department : {course.department}</Text>
+              <Text style={styles.description}>Duration : {course.duration}</Text>
+              <Text style={styles.description}>Description : {course.description}</Text>
               <Divider style={{ width: '80%', marginVertical: 20, backgroundColor: '#ccc' }} />
             </View>
           </View>
