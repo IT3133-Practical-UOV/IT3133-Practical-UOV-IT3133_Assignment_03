@@ -4,7 +4,10 @@ import Logo from '../components/Logo';
 import Footer from '../components/Footer';
 import { Divider } from 'react-native-paper';
 
-export default function Profile() {
+export default function Profile({route}) {
+
+  const {user} = route.params;
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -12,20 +15,20 @@ export default function Profile() {
           <Logo />
         </View>
         <View style={styles.card}>
-          <Image source={require('../../assets/images/1.jpg')} style={styles.image} />
-          <Text style={styles.title}>Alice Johnson</Text>
-          <Text style={styles.description}>Age: 21 | Gender: Female</Text>
+          <Image source={user.profile_pic} style={styles.image} />
+          <Text style={styles.title}>{user.name}</Text>
+          <Text style={styles.description}>Age: {user.age} | Gender: {user.gender}</Text>
           <Divider style={{ width: '80%', marginVertical: 30, backgroundColor: '#ccc' }} />
           <View style={styles.infoContainer}>
             <Text style={styles.subtitle}>Contact Information</Text>
-            <Text style={styles.description}>Email : ruwini@gmail.com</Text>
-            <Text style={styles.description}>Phone : 0771876638</Text>
-            <Text style={styles.description}>Address : 41, Thoranavla, Piliyandala</Text>
+            <Text style={styles.description}>Email : {user.email}</Text>
+            <Text style={styles.description}>Phone : {user.phone}</Text>
+            <Text style={styles.description}>Address : {user.address}</Text>
             <Divider style={{ width: '80%', marginVertical: 20, backgroundColor: '#ccc' }} />
             <Text style={styles.subtitle}>Biological Information</Text>
-            <Text style={styles.description}>Gender : Female</Text>
-            <Text style={styles.description}>Age : 21</Text>
-            <Text style={styles.description}>Blood Group : Group O+</Text>
+            <Text style={styles.description}>Gender : {user.gender}</Text>
+            <Text style={styles.description}>Age : {user.age}</Text>
+            <Text style={styles.description}>Blood Group : {user.blood_group}</Text>
           </View>
         </View>
       </ScrollView>
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   scrollContainer: {
-    paddingBottom: 80, // Prevent overlap with footer
+    paddingBottom: 80,
   },
   logoContainer: {
     justifyContent: 'center',
